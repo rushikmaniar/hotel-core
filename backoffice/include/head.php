@@ -1,6 +1,6 @@
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>DeskApp Dashboard</title>
+	<title><?= $admin->Pagetitle; ?></title>
 
 	<!-- Site favicon -->
 	<!-- <link rel="shortcut icon" href="images/favicon.ico"> -->

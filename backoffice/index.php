@@ -2,7 +2,7 @@
 session_start();
 
 
-$mysqli = new mysqli('localhost', 'root', '', 'hotel_minute_masti');
+$mysqli = new mysqli('localhost', 'root', 'root', 'hotel_minute_masti');
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
@@ -11,7 +11,7 @@ if ($mysqli->connect_errno) {
 if (isset($_SESSION['hotel-admin'])) {
     //continute to dashboard
 
-    header("Location: http://localhost:90/sample/backoffice/dashboard.php");
+    header("Location: http://localhost/hotel-core/backoffice/dashboard.php");
     die();
 } else {
     //else login first

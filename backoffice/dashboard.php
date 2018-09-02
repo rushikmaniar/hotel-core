@@ -1,3 +1,10 @@
+<?php 
+include('../core/AdminController.php');
+
+$admin = new AdminController();
+$admin->Pagetitle = 'Admin | Dashboard';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +20,7 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>blank</h4>
+								<h4><?= $admin->Pagetitle; ?></h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
