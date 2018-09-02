@@ -2,7 +2,7 @@
 session_start();
 
 
-$mysqli = new mysqli('localhost', 'root', 'root', 'hotel_minute_masti');
+$mysqli = new mysqli('localhost', 'root', '', 'hotel_minute_masti');
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
@@ -51,7 +51,7 @@ if (isset($_SESSION['hotel-admin'])) {
     <div class="login-box bg-white box-shadow pd-30 border-radius-5">
         <img src="vendors/images/login-img.png" alt="login" class="login-img">
         <h2 class="text-center mb-30">Login</h2>
-        <form action="index.php" method="post">
+        <form action="index.php" method="post" id="LoginForm">
             <div class="input-group custom input-group-lg">
                 <input type="text" class="form-control" placeholder="User Email" name="username">
                 <div class="input-group-append custom">
@@ -83,4 +83,31 @@ if (isset($_SESSION['hotel-admin'])) {
 </div>
 <?php include('include/script.php'); ?>
 </body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#LoginForm").validate({
+            errorClass: 'has-danger',
+            rules:
+                {
+                    username: {
+                        required: true,
+                        email:true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+            messages:
+                {
+                    username: {
+                        required: "Email Required",
+                        email: "Enter Valid Email"
+                    },
+                    password: {
+                        required: "Password Required"
+                    }
+                }
+        });
+    });
+</script>
 </html>
